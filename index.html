@@ -1,3 +1,1454 @@
-<a href="/" class="brand">
-    <img src="assets/logo.png" alt="Oikodomos">
-</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Oikodomos builds autonomous AI agents for cybersecurity. Build. Protect. Empower.">
+
+    <meta name="keywords"
+          content="Oikodomos, cybersecurity, AI security, agentic AI, autonomous security, application security">
+
+    <meta name="author" content="Oikodomos">
+
+    <title>Oikodomos — Build. Protect. Empower.</title>
+
+    <link rel="icon" type="image/png" href="assets/logo.png">
+
+    <style>
+        /* ================================
+           RESET
+        ================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            background: #05070b;
+            color: #f5f7fa;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        /* ================================
+           VARIABLES
+        ================================= */
+
+        :root {
+            --bg: #05070b;
+            --bg-secondary: #090d14;
+            --card: #0c1119;
+            --border: rgba(255, 255, 255, 0.09);
+
+            --text: #f5f7fa;
+            --muted: #929baa;
+
+            --gold: #d9ad57;
+            --gold-light: #f0d18a;
+
+            --blue: #6ea8ff;
+
+            --max-width: 1180px;
+        }
+
+        /* ================================
+           GLOBAL
+        ================================= */
+
+        .container {
+            width: min(var(--max-width), calc(100% - 40px));
+            margin: auto;
+        }
+
+        .section {
+            padding: 110px 0;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+
+            color: var(--gold-light);
+            margin-bottom: 18px;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 24px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.1;
+        }
+
+        /* ================================
+           NAVBAR
+        ================================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            z-index: 1000;
+
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+
+            background: rgba(5, 7, 11, 0.78);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        .nav-inner {
+            height: 78px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .brand img {
+            width: 145px;
+            height: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 34px;
+
+            font-size: 14px;
+            color: #c9ced7;
+        }
+
+        .nav-links a {
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-cta {
+            padding: 10px 18px;
+
+            border: 1px solid rgba(217, 173, 87, 0.5);
+            border-radius: 6px;
+
+            color: var(--gold-light);
+
+            transition: all 0.25s ease;
+        }
+
+        .nav-cta:hover {
+            background: rgba(217, 173, 87, 0.1);
+            border-color: var(--gold);
+        }
+
+        /* ================================
+           HERO
+        ================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            position: relative;
+            overflow: hidden;
+
+            padding-top: 78px;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 700px;
+            height: 700px;
+
+            top: -250px;
+            right: -200px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(217, 173, 87, 0.12),
+                    transparent 68%
+                );
+
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            bottom: -250px;
+            left: -200px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(67, 112, 190, 0.10),
+                    transparent 70%
+                );
+
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            padding: 7px 13px;
+
+            border: 1px solid rgba(255,255,255,0.10);
+            border-radius: 999px;
+
+            background: rgba(255,255,255,0.025);
+
+            color: #aeb5c0;
+
+            font-size: 12px;
+
+            margin-bottom: 28px;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #68d391;
+
+            box-shadow: 0 0 12px rgba(104,211,145,0.6);
+        }
+
+        .hero h1 {
+            font-size: clamp(52px, 8vw, 92px);
+            letter-spacing: -0.055em;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 span {
+            color: var(--gold-light);
+        }
+
+        .hero-description {
+            max-width: 680px;
+
+            color: var(--muted);
+
+            font-size: clamp(18px, 2vw, 21px);
+
+            line-height: 1.7;
+
+            margin-bottom: 38px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 14px 23px;
+
+            border-radius: 6px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: all 0.25s ease;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: #090909;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border);
+            color: #d7dce3;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.04);
+            border-color: rgba(255,255,255,0.18);
+        }
+
+        /* ================================
+           TRUST STRIP
+        ================================= */
+
+        .trust-strip {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+
+            background: rgba(255,255,255,0.015);
+        }
+
+        .trust-inner {
+            min-height: 90px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+        .trust-text {
+            color: #717987;
+            font-size: 13px;
+        }
+
+        .trust-items {
+            display: flex;
+            gap: 40px;
+
+            color: #9ba2ae;
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* ================================
+           INTRO
+        ================================= */
+
+        .intro {
+            max-width: 850px;
+        }
+
+        .intro h2 {
+            font-size: clamp(36px, 5vw, 58px);
+            letter-spacing: -0.04em;
+            margin-bottom: 25px;
+        }
+
+        .intro p {
+            color: var(--muted);
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* ================================
+           PRODUCT CARDS
+        ================================= */
+
+        .section-heading {
+            max-width: 700px;
+            margin-bottom: 55px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(36px, 5vw, 58px);
+            letter-spacing: -0.04em;
+            margin-bottom: 20px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 17px;
+        }
+
+        .cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .card {
+            padding: 32px;
+
+            min-height: 280px;
+
+            border: 1px solid var(--border);
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.035),
+                    rgba(255,255,255,0.01)
+                );
+
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(217,173,87,0.35);
+        }
+
+        .card-number {
+            color: var(--gold);
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: 0.12em;
+
+            margin-bottom: 50px;
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 14px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* ================================
+           AGENT SECTION
+        ================================= */
+
+        .agent-section {
+            background: var(--bg-secondary);
+
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .agent-layout {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 90px;
+
+            align-items: center;
+        }
+
+        .agent-copy h2 {
+            font-size: clamp(38px, 5vw, 62px);
+            letter-spacing: -0.045em;
+
+            margin-bottom: 25px;
+        }
+
+        .agent-copy p {
+            color: var(--muted);
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+            margin-bottom: 28px;
+        }
+
+        .agent-list {
+            list-style: none;
+        }
+
+        .agent-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            padding: 13px 0;
+
+            border-bottom: 1px solid var(--border);
+
+            color: #c9ced6;
+
+            font-size: 14px;
+        }
+
+        .check {
+            width: 18px;
+            height: 18px;
+
+            display: grid;
+            place-items: center;
+
+            border: 1px solid rgba(217,173,87,0.5);
+            border-radius: 50%;
+
+            color: var(--gold);
+
+            font-size: 10px;
+        }
+
+        /* ================================
+           TERMINAL
+        ================================= */
+
+        .terminal {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+
+            overflow: hidden;
+
+            background: #070a0f;
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,0.35);
+        }
+
+        .terminal-header {
+            height: 45px;
+
+            display: flex;
+            align-items: center;
+
+            padding: 0 16px;
+
+            border-bottom: 1px solid var(--border);
+
+            background: rgba(255,255,255,0.025);
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .terminal-dots span {
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: #454b55;
+        }
+
+        .terminal-body {
+            padding: 26px;
+
+            font-family:
+                "SFMono-Regular",
+                Consolas,
+                "Liberation Mono",
+                monospace;
+
+            font-size: 13px;
+
+            line-height: 2;
+
+            color: #8f98a8;
+        }
+
+        .terminal-green {
+            color: #70d49a;
+        }
+
+        .terminal-gold {
+            color: var(--gold-light);
+        }
+
+        .terminal-white {
+            color: #e9edf3;
+        }
+
+        /* ================================
+           MISSION
+        ================================= */
+
+        .mission {
+            text-align: center;
+        }
+
+        .mission-content {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .mission h2 {
+            font-size: clamp(42px, 6vw, 70px);
+            letter-spacing: -0.05em;
+            margin-bottom: 28px;
+        }
+
+        .mission h2 span {
+            color: var(--gold-light);
+        }
+
+        .mission p {
+            color: var(--muted);
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .mission-verse {
+            margin-top: 42px;
+
+            padding: 25px;
+
+            border-left: 2px solid var(--gold);
+
+            color: #c4c9d1;
+
+            font-style: italic;
+
+            text-align: left;
+        }
+
+        /* ================================
+           CTA
+        ================================= */
+
+        .cta {
+            padding: 100px 0;
+        }
+
+        .cta-box {
+            padding: 65px 50px;
+
+            text-align: center;
+
+            border: 1px solid rgba(217,173,87,0.22);
+
+            border-radius: 14px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(217,173,87,0.07),
+                    transparent 65%
+                ),
+                rgba(255,255,255,0.015);
+        }
+
+        .cta-box h2 {
+            font-size: clamp(36px, 5vw, 55px);
+            letter-spacing: -0.04em;
+            margin-bottom: 18px;
+        }
+
+        .cta-box p {
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* ================================
+           FOOTER
+        ================================= */
+
+        footer {
+            border-top: 1px solid var(--border);
+
+            padding: 45px 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 30px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-brand img {
+            width: 125px;
+        }
+
+        .footer-copy {
+            color: #646c79;
+            font-size: 12px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 25px;
+
+            color: #858d9a;
+            font-size: 13px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* ================================
+           RESPONSIVE
+        ================================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .agent-layout {
+                grid-template-columns: 1fr;
+
+                gap: 50px;
+            }
+
+            .trust-inner {
+                flex-direction: column;
+                justify-content: center;
+
+                padding: 25px 0;
+            }
+
+            .trust-items {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: min(
+                    var(--max-width),
+                    calc(100% - 28px)
+                );
+            }
+
+            .section {
+                padding: 80px 0;
+            }
+
+            .hero {
+                min-height: 90vh;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero-description {
+                font-size: 17px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .card {
+                padding: 25px;
+            }
+
+            .cta-box {
+                padding: 45px 25px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- ================================
+         NAVIGATION
+    ================================= -->
+
+    <nav>
+
+        <div class="container nav-inner">
+
+            <a href="#" class="brand">
+                <img
+                    src="assets/logo.png"
+                    alt="Oikodomos"
+                >
+            </a>
+
+            <div class="nav-links">
+
+                <a href="#technology">
+                    Technology
+                </a>
+
+                <a href="#agents">
+                    Agents
+                </a>
+
+                <a href="#mission">
+                    Mission
+                </a>
+
+                <a href="#contact" class="nav-cta">
+                    Get in touch
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================================
+         HERO
+    ================================= -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="container">
+
+                <div class="hero-content">
+
+                    <div class="hero-badge">
+
+                        <span class="status-dot"></span>
+
+                        Building the future of autonomous security
+
+                    </div>
+
+
+                    <h1>
+
+                        Security that
+                        <span>thinks.</span>
+
+                    </h1>
+
+
+                    <p class="hero-description">
+
+                        Oikodomos builds autonomous AI agents that
+                        continuously discover vulnerabilities, investigate
+                        threats, and help organizations secure their
+                        digital world.
+
+                    </p>
+
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="#technology"
+                            class="btn btn-primary"
+                        >
+                            Explore Oikodomos
+                        </a>
+
+                        <a
+                            href="#contact"
+                            class="btn btn-secondary"
+                        >
+                            Talk to us
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             TRUST STRIP
+        ================================= -->
+
+        <div class="trust-strip">
+
+            <div class="container trust-inner">
+
+                <div class="trust-text">
+                    Autonomous security infrastructure
+                </div>
+
+                <div class="trust-items">
+
+                    <span>AI Security</span>
+
+                    <span>Offensive Security</span>
+
+                    <span>Application Security</span>
+
+                    <span>Cloud Security</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================
+             INTRO
+        ================================= -->
+
+        <section class="section" id="technology">
+
+            <div class="container">
+
+                <div class="intro">
+
+                    <div class="eyebrow">
+                        The problem
+                    </div>
+
+                    <h2>
+                        Cybersecurity cannot
+                        scale like it used to.
+                    </h2>
+
+                    <p>
+
+                        Modern organizations generate more code,
+                        infrastructure, dependencies, APIs and attack
+                        surfaces than security teams can manually
+                        analyze.
+
+                        <br><br>
+
+                        Oikodomos is building AI agents that work
+                        alongside security teams — continuously
+                        reasoning, investigating and acting across
+                        the security lifecycle.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             CAPABILITIES
+        ================================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="eyebrow">
+                        Capabilities
+                    </div>
+
+                    <h2>
+                        Autonomous security,
+                        from discovery to defense.
+                    </h2>
+
+                    <p>
+                        Purpose-built agents designed to automate
+                        security workflows that traditionally require
+                        hours of manual investigation.
+                    </p>
+
+                </div>
+
+
+                <div class="cards">
+
+                    <div class="card">
+
+                        <div class="card-number">
+                            01 / DISCOVER
+                        </div>
+
+                        <h3>
+                            Attack Surface
+                        </h3>
+
+                        <p>
+                            Continuously discover applications,
+                            APIs, cloud infrastructure, assets and
+                            exposed services across your environment.
+                        </p>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <div class="card-number">
+                            02 / HUNT
+                        </div>
+
+                        <h3>
+                            Threat Detection
+                        </h3>
+
+                        <p>
+                            Autonomous agents investigate suspicious
+                            behavior, correlate evidence and identify
+                            potential attack paths.
+                        </p>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <div class="card-number">
+                            03 / SECURE
+                        </div>
+
+                        <h3>
+                            Remediation
+                        </h3>
+
+                        <p>
+                            Transform findings into actionable
+                            remediation guidance and help engineering
+                            teams close vulnerabilities faster.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             AGENTS
+        ================================= -->
+
+        <section class="section agent-section" id="agents">
+
+            <div class="container">
+
+                <div class="agent-layout">
+
+
+                    <div class="agent-copy">
+
+                        <div class="eyebrow">
+                            Agentic Security
+                        </div>
+
+                        <h2>
+                            Your security team,
+                            amplified by AI.
+                        </h2>
+
+                        <p>
+
+                            Oikodomos agents are designed to reason
+                            through complex security problems instead
+                            of simply generating another security report.
+
+                        </p>
+
+
+                        <ul class="agent-list">
+
+                            <li>
+
+                                <span class="check">✓</span>
+
+                                Autonomous reconnaissance
+
+                            </li>
+
+                            <li>
+
+                                <span class="check">✓</span>
+
+                                Vulnerability analysis
+
+                            </li>
+
+                            <li>
+
+                                <span class="check">✓</span>
+
+                                Attack-path reasoning
+
+                            </li>
+
+                            <li>
+
+                                <span class="check">✓</span>
+
+                                Evidence generation
+
+                            </li>
+
+                            <li>
+
+                                <span class="check">✓</span>
+
+                                Remediation assistance
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <!-- TERMINAL -->
+
+                    <div class="terminal">
+
+                        <div class="terminal-header">
+
+                            <div class="terminal-dots">
+
+                                <span></span>
+                                <span></span>
+                                <span></span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="terminal-body">
+
+                            <div>
+                                <span class="terminal-gold">
+                                    oikodomos
+                                </span>
+                                &gt; initialize agent
+                            </div>
+
+                            <div>
+                                loading security context...
+                            </div>
+
+                            <br>
+
+                            <div>
+                                <span class="terminal-green">
+                                    ✓
+                                </span>
+
+                                attack surface discovered
+                            </div>
+
+                            <div>
+                                <span class="terminal-green">
+                                    ✓
+                                </span>
+
+                                247 endpoints analyzed
+                            </div>
+
+                            <div>
+                                <span class="terminal-green">
+                                    ✓
+                                </span>
+
+                                18 cloud assets mapped
+                            </div>
+
+                            <div>
+                                <span class="terminal-gold">
+                                    !
+                                </span>
+
+                                potential attack path identified
+                            </div>
+
+                            <br>
+
+                            <div>
+                                <span class="terminal-white">
+                                    severity:
+                                </span>
+
+                                HIGH
+                            </div>
+
+                            <div>
+                                <span class="terminal-white">
+                                    confidence:
+                                </span>
+
+                                96%
+                            </div>
+
+                            <br>
+
+                            <div>
+                                generating evidence...
+                            </div>
+
+                            <div>
+                                preparing remediation...
+                            </div>
+
+                            <br>
+
+                            <div>
+                                <span class="terminal-green">
+                                    ✓ security analysis complete
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             MISSION
+        ================================= -->
+
+        <section class="section" id="mission">
+
+            <div class="container">
+
+                <div class="mission">
+
+                    <div class="mission-content">
+
+                        <div class="eyebrow">
+                            Our mission
+                        </div>
+
+                        <h2>
+
+                            Build technology.
+                            <span>Build the Kingdom.</span>
+
+                        </h2>
+
+                        <p>
+
+                            Oikodomos is built with a purpose beyond
+                            technology. We want to create a company
+                            that builds exceptional security technology
+                            while using its success to create impact
+                            beyond itself.
+
+                        </p>
+
+
+                        <div class="mission-verse">
+
+                            “Unless the Lord builds the house,
+                            the builders labor in vain.”
+
+                            <br><br>
+
+                            <strong>
+                                Psalm 127:1
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             CTA
+        ================================= -->
+
+        <section class="cta" id="contact">
+
+            <div class="container">
+
+                <div class="cta-box">
+
+                    <div class="eyebrow">
+                        Oikodomos
+                    </div>
+
+                    <h2>
+                        Build. Protect. Empower.
+                    </h2>
+
+                    <p>
+
+                        We're building the next generation of
+                        autonomous cybersecurity.
+
+                        If you're interested in working with us,
+                        we'd love to hear from you.
+
+                    </p>
+
+
+                    <a
+                        href="mailto:hello@oikodomos.in"
+                        class="btn btn-primary"
+                    >
+                        hello@oikodomos.in
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================================
+         FOOTER
+    ================================= -->
+
+    <footer>
+
+        <div class="container footer-inner">
+
+
+            <div>
+
+                <div class="footer-brand">
+
+                    <img
+                        src="assets/logo.png"
+                        alt="Oikodomos"
+                    >
+
+                </div>
+
+                <div class="footer-copy">
+
+                    © 2026 Oikodomos. All rights reserved.
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="#technology">
+                    Technology
+                </a>
+
+                <a href="#agents">
+                    Agents
+                </a>
+
+                <a href="#mission">
+                    Mission
+                </a>
+
+                <a href="mailto:hello@oikodomos.in">
+                    Contact
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </footer>
+
+
+</body>
+</html>
